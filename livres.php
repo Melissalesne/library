@@ -4,5 +4,5 @@
 
 <?php
 $content = ob_get_clean();
-$titre = "My Little Library";
+$titre = "Les livres";
 require "template.php";
