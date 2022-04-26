@@ -23,7 +23,6 @@
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link active" href="index.php">Accueil
-                            <span class="visually-hidden">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -41,10 +40,11 @@
 
 
     <div class="container">
-        <h1 class="rounded-3 border border-dark p-4 m-2 text-center text-white bg-info"><?= $titre ?></h1>
+        <h1 class="rounded-3 border border-dark p-4 m-2 text-center text-black bg-secondary"><?= $titre ?></h1>
         <?= $content ?>
 
     </div>
+
 
 
 
