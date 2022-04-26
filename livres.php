@@ -1,4 +1,12 @@
-<?php ob_start() ?>
+<?php
+
+require_once "LivreManager.class.php";
+
+$livreManager = new LivreManager;
+$livreManager->chargementLivres();
+
+ob_start()
+?>
 
 <table class="table text-center">
     <tr class="table-dark">
@@ -8,21 +16,18 @@
         <th colspan="2">Actions</th>
     </tr>
     <tr>
-        <td class="align-middle"><img src="public/images/france.png" width="60px" </td>
-        <td class="align-middle">Histoire de france</td>
-        <td class="align-middle">300</td>
-        <td class="align-middle"><a href="" class="btn btn-outline-warning">Modifier</a></td>
-        <td class="align-middle"><a href="" class="btn btn-outline-danger">Supprimer</a></td>
+        <?php
+        $livres = $livreManager->getLivres();
+        for ($i = 0; $i < count($livres); $i++) :
+        ?>
+            <td class="align-middle"><img src="public/images/<?= $livres[$i]->getImage(); ?>" width="60px"></td>
+            <td class="align-middle"><?= $livres[$i]->getTitre(); ?></td>
+            <td class="align-middle"><?= $livres[$i]->getNbPages(); ?></td>
+            <td class="align-middle"><a href="" class="btn btn-outline-warning">Modifier</a></td>
+            <td class="align-middle"><a href="" class="btn btn-outline-danger">Supprimer</a></td>
 
     </tr>
-
-    <tr>
-        <td class="align-middle"><img src="public/images/livre.png" width="70px" </td>
-        <td class="align-middle">Le petit prince</td>
-        <td class="align-middle">200</td>
-        <td class="align-middle"><a href="" class="btn btn-outline-warning">Modifier</a></td>
-        <td class="align-middle"><a href="" class="btn btn-outline-danger">Supprimer</a></td>
-    </tr>
+<?php endfor; ?>
 </table>
 <a href="" class="btn btn-outline-success d-block">Ajouter</a>
 
